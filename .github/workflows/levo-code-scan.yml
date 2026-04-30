@@ -19,6 +19,6 @@ jobs:
           authorization-key: ${{ secrets.LEVO_AUTH_KEY }}
           organization-id: ${{ secrets.LEVO_ORG_ID }}
           app-name: "levo-scan-test"
-          language: "java"
+          language: "csharp"
           env-name: "staging"
           saas-url: "https://api.dev.levo.ai"
