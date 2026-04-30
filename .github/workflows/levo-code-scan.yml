@@ -1,0 +1,24 @@
+name: Levo Code Scan
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Levo Code Scanner
+        uses: levoai/actions/scan@main
+        with:
+          authorization-key: ${{ secrets.LEVO_AUTH_KEY }}
+          organization-id: ${{ secrets.LEVO_ORG_ID }}
+          app-name: "levo-scan-test"
+          language: "java"
+          env-name: "staging"
+          saas-url: "https://api.dev.levo.ai"
